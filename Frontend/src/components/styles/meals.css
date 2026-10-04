@@ -1,0 +1,83 @@
+.meals-description {
+    margin: 28px 0;
+    line-height: 1.6;
+}
+
+.meals-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.meal {
+    overflow: hidden;
+
+    border: 1px solid var(--accent-light);
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.meal-dropdown-button {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 22px;
+
+    border: none;
+    background: transparent;
+
+    color: var(--text-h);
+
+    font: inherit;
+    font-size: 1.1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.meal-dropdown-button:hover {
+    background: rgba(170, 59, 255, 0.08);
+}
+
+.meal-dropdown-arrow {
+    color: var(--accent);
+    font-size: 0.8rem;
+
+    transition: transform 0.2s ease;
+}
+
+.meal-dropdown-arrow.open {
+    transform: rotate(180deg);
+}
+
+.meal-qr-section {
+    padding: 8px 22px 28px;
+
+    text-align: center;
+
+    border-top: 1px solid var(--accent-light);
+}
+
+.meal-qr-section p {
+    margin: 20px 0;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.meal-qr-code {
+    width: fit-content;
+
+    margin: 0 auto;
+    padding: 16px;
+
+    background: white;
+
+    border-radius: 10px;
+}

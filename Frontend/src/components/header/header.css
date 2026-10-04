@@ -1,0 +1,14 @@
+/* 1. Header: Push Logo Left and Nav Right */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Pushes logo to left, Navbar to right */
+  padding: 5px 20px 5px;
+}
+
+/* 2. Logo Size */
+.logo {
+  height: 150px;
+  width: auto;
+  display: block;
+}

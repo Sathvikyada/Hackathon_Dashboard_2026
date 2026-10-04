@@ -1,0 +1,324 @@
+/* Applications page is wider than the standard content page
+   because the table contains several columns. */
+.applications-page {
+    max-width: 1500px;
+}
+
+
+/* Keep the same card design as the rest of the site. */
+.applications-card {
+    padding: 32px 40px 40px;
+}
+
+
+/* ---------------- Heading ---------------- */
+
+.applications-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    padding-bottom: 14px;
+
+    border-bottom: 2px solid var(--accent-light);
+}
+
+.applications-heading h1 {
+    margin: 0;
+    padding: 0;
+
+    color: var(--heading-card);
+    font-size: 2rem;
+    font-weight: 700;
+
+    border-bottom: none;
+}
+
+.applications-heading p {
+    margin: 0 0 4px;
+
+    color: #6b6670;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+
+/* ---------------- Table Container ---------------- */
+
+.applications-table-container {
+    width: 100%;
+    margin-top: 28px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    border: 1px solid var(--accent-light);
+    border-radius: 12px;
+
+    overflow-x: auto;
+}
+
+
+/* ---------------- Table ---------------- */
+
+.applications-table {
+    width: 100%;
+    min-width: 1200px;
+
+    border-collapse: collapse;
+    table-layout: fixed;
+
+    color: var(--text);
+    font-size: 0.88rem;
+}
+
+
+/* ---------------- Column Widths ---------------- */
+
+/* Name */
+.applications-table th:nth-child(1),
+.applications-table td:nth-child(1) {
+    width: 15%;
+}
+
+/* Email */
+.applications-table th:nth-child(2),
+.applications-table td:nth-child(2) {
+    width: 20%;
+}
+
+/* Applied */
+.applications-table th:nth-child(3),
+.applications-table td:nth-child(3) {
+    width: 10%;
+}
+
+/* University */
+.applications-table th:nth-child(4),
+.applications-table td:nth-child(4) {
+    width: 14%;
+}
+
+/* Status */
+.applications-table th:nth-child(5),
+.applications-table td:nth-child(5) {
+    width: 12%;
+}
+
+/* RSVP Status */
+.applications-table th:nth-child(6),
+.applications-table td:nth-child(6) {
+    width: 13%;
+}
+
+/* Last Modified */
+.applications-table th:nth-child(7),
+.applications-table td:nth-child(7) {
+    width: 16%;
+}
+
+
+/* ---------------- Column Headings ---------------- */
+
+.applications-table thead {
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.applications-table th {
+    padding: 18px 16px;
+
+    color: #62586a;
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-transform: uppercase;
+
+    border-bottom: 1px solid var(--accent-light);
+
+    white-space: nowrap;
+}
+
+
+/* ---------------- Rows ---------------- */
+
+.applications-table tbody tr {
+    cursor: pointer;
+
+    border-bottom: 1px solid rgba(170, 59, 255, 0.12);
+
+    transition:
+        background-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.applications-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.applications-table tbody tr:hover {
+    background: rgba(170, 59, 255, 0.08);
+
+    box-shadow:
+        inset 3px 0 0 var(--accent);
+}
+
+
+/* ---------------- Cells ---------------- */
+
+.applications-table td {
+    padding: 20px 16px;
+
+    color: var(--text);
+    text-align: center;
+    vertical-align: middle;
+
+    line-height: 1.45;
+}
+
+
+/* Name */
+
+.applications-table td:first-child {
+    color: var(--text-h);
+    font-weight: 600;
+}
+
+
+/* Email */
+
+.applications-table td:nth-child(2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* Last Modified */
+
+.applications-table td:last-child {
+    color: #6b6670;
+    font-size: 0.8rem;
+
+    white-space: nowrap;
+}
+
+
+/* ---------------- Status Badges ---------------- */
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 82px;
+    padding: 6px 11px;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1;
+
+    border-radius: 999px;
+
+    white-space: nowrap;
+}
+
+
+/* Application Decision */
+
+.status-badge.accepted {
+    color: #176437;
+    background: #dcf5e6;
+}
+
+.status-badge.pending {
+    color: #76510d;
+    background: #fff0c7;
+}
+
+.status-badge.waitlisted {
+    color: #70480a;
+    background: #ffe2ad;
+}
+
+.status-badge.rejected {
+    color: #8d2929;
+    background: #f9dddd;
+}
+
+.status-badge.decision-na {
+    color: #625d65;
+    background: #eceaec;
+}
+
+
+/* Applied */
+
+.status-badge.applied-yes,
+.status-badge.applied-no {
+    min-width: 64px;
+}
+
+.status-badge.applied-yes {
+    color: #176437;
+    background: #dcf5e6;
+}
+
+.status-badge.applied-no {
+    color: #625d65;
+    background: #eceaec;
+}
+
+
+/* RSVP */
+
+.status-badge.rsvp-accepted {
+    color: #176437;
+    background: #dcf5e6;
+}
+
+.status-badge.rsvp-declined {
+    color: #8d2929;
+    background: #f9dddd;
+}
+
+.status-badge.rsvp-pending {
+    color: #76510d;
+    background: #fff0c7;
+}
+
+.status-badge.rsvp-na {
+    color: #625d65;
+    background: #eceaec;
+}
+
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 768px) {
+    .applications-card {
+        padding: 24px;
+    }
+
+    .applications-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .applications-heading h1 {
+        font-size: 1.7rem;
+    }
+
+    .applications-heading p {
+        margin: 0;
+    }
+
+    .applications-table th {
+        padding: 15px 14px;
+    }
+
+    .applications-table td {
+        padding: 17px 14px;
+    }
+}

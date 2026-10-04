@@ -1,0 +1,262 @@
+/* ---------------- Applicant Header ---------------- */
+
+.applicant-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+
+    padding-bottom: 28px;
+
+    border-bottom: 2px solid var(--accent-light);
+}
+
+.applicant-header h1 {
+    margin: 4px 0 6px;
+    padding: 0;
+
+    color: var(--heading-card);
+    font-size: 2rem;
+    font-weight: 700;
+
+    border: none;
+}
+
+.applicant-header h1 + .applicant-email {
+    margin-top: 0;
+}
+
+.applicant-label {
+    margin: 0;
+
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.applicant-email {
+    margin: 0;
+
+    color: #6b6670;
+    font-size: 0.9rem;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* ---------------- Application Status ---------------- */
+
+.applicant-status {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    min-width: 170px;
+    padding: 14px 18px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    border: 1px solid var(--accent-light);
+    border-radius: 10px;
+}
+
+.applicant-status span {
+    color: #6b6670;
+    font-size: 0.68rem;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.applicant-status strong {
+    color: var(--text-h);
+    font-size: 0.95rem;
+}
+
+
+/* ---------------- Sections ---------------- */
+
+.applicant-section {
+    padding: 30px 0;
+
+    border-bottom: 1px solid rgba(170, 59, 255, 0.18);
+}
+
+.applicant-section h2 {
+    margin: 0 0 18px;
+
+    color: var(--heading-card);
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+
+/* ---------------- Short Information Grid ---------------- */
+
+.applicant-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+/* Spacing between grids and long-answer boxes */
+
+.applicant-info-grid + .applicant-long-info {
+    margin-top: 12px;
+}
+
+.applicant-long-info + .applicant-info-grid {
+    margin-top: 12px;
+}
+
+
+/* Individual information box */
+
+.applicant-info {
+    min-width: 0;
+    padding: 14px 16px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    border: 1px solid rgba(170, 59, 255, 0.16);
+    border-radius: 9px;
+}
+
+.applicant-info span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #746b79;
+    font-size: 0.68rem;
+    font-weight: 700;
+
+    letter-spacing: 0.55px;
+    text-transform: uppercase;
+}
+
+.applicant-info p {
+    margin: 0;
+
+    color: var(--text-h);
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    line-height: 1.45;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* ---------------- Long Answer Fields ---------------- */
+
+.applicant-long-info {
+    margin-top: 12px;
+    padding: 16px 18px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    border: 1px solid rgba(170, 59, 255, 0.16);
+    border-radius: 9px;
+}
+
+.applicant-long-info span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #746b79;
+    font-size: 0.68rem;
+    font-weight: 700;
+
+    letter-spacing: 0.55px;
+    text-transform: uppercase;
+}
+
+.applicant-long-info p {
+    margin: 0;
+
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 400;
+
+    line-height: 1.6;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+
+/* When long information follows a grid */
+
+.applicant-info-grid + .applicant-long-info {
+    margin-top: 12px;
+}
+
+
+/* ---------------- Metadata ---------------- */
+
+.applicant-metadata {
+    border-bottom: none;
+}
+
+.applicant-metadata .applicant-info {
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.applicant-metadata .applicant-info p {
+    color: #625d65;
+    font-weight: 400;
+}
+
+
+/* ---------------- No Application ---------------- */
+
+.applicant-info-empty {
+    padding: 40px 20px;
+
+    text-align: center;
+}
+
+.applicant-info-empty h2 {
+    margin: 0 0 8px;
+
+    color: var(--heading-card);
+}
+
+.applicant-info-empty p {
+    margin: 0;
+
+    color: #6b6670;
+}
+
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 700px) {
+    .applicant-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .applicant-status {
+        width: 100%;
+    }
+
+    .applicant-header h1 {
+        font-size: 1.7rem;
+    }
+
+    .applicant-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .applicant-section {
+        padding: 24px 0;
+    }
+}

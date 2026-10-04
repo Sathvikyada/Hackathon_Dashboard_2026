@@ -1,0 +1,47 @@
+/* 1. Global Box Sizing & Smooth Scrolling */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Design Tokens & Base Document Styles */
+:root {
+  /* Color Tokens */
+  --text: #18181B;
+  --text-h: #121212;
+  --bg: #F0EDDF;
+  --accent: #aa3bff;
+  --heading-card: #2d2933;
+  --accent-light: #d7a8ff;
+  --accent-surface: #f1e4ff;
+
+  /* Typography Tokens */
+  --sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --heading: var(--sans);
+  --mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+
+  /* Global Settings */
+  color-scheme: light;
+  font: 18px/1.45 var(--sans);
+  letter-spacing: 0.18px;
+  color: var(--text);
+  background-color: var(--bg);
+
+  /* macOS Font Smoothing */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3. Apply Heading Font Token */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading);
+  color: var(--text-h);
+}
+
+/* 4. Responsive Font Sizing */
+@media (max-width: 1024px) {
+  :root {
+    font-size: 16px;
+  }
+}

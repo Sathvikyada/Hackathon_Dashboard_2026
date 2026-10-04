@@ -1,0 +1,148 @@
+{
+  "people": [
+    {
+      "id": "1",
+      "firstName": "Johns",
+      "lastName": "Doe",
+      "email": "johndoe@gmail.com",
+      "applied": true,
+      "applicationDecision": "Pending",
+      "rsvpStatus": "N/A",
+      "organizer": false
+    },
+    {
+      "id": "2",
+      "firstName": "Sathvik",
+      "lastName": "Yadanaparthi",
+      "email": "vick@g",
+      "applied": true,
+      "applicationDecision": "Pending",
+      "rsvpStatus": "N/A",
+      "organizer": false,
+      "application": {
+        "lastModified": "2026-10-03T22:07:48.426Z",
+        "email": "vick@g",
+        "firstName": "Sathvik",
+        "lastName": "Yadanaparthi",
+        "phone": "12342",
+        "age": 21,
+        "gender": "man",
+        "pronouns": null,
+        "country": "USA",
+        "raceEthnicity": [
+          "Asian",
+          "Prefer not to say"
+        ],
+        "sexualOrientation": [],
+        "linkedin": null,
+        "github": null,
+        "portfolio": null,
+        "shirtSize": "M",
+        "university": "University of Massachusetts - Amherst",
+        "major": "CS",
+        "graduationYear": 2025,
+        "educationLevel": "high-school",
+        "attendedHackathon": false,
+        "hackathonCount": 0,
+        "attendedHackUMass": false,
+        "previousExperience": null,
+        "programmingSkills": null,
+        "hardwareSkills": null,
+        "otherSkills": null,
+        "hasTeam": false,
+        "whyHackUMass": "sa",
+        "goals": "sa",
+        "travelSupport": [
+          "I do not need a travel stipend",
+          "I can take a HackUMass Charter Bus from Boston",
+          "I can take a HackUMass Charter Bus from New York City",
+          "I need a travel stipend"
+        ],
+        "travelDetails": null,
+        "mealAccommodations": false,
+        "foodRestrictions": "sa",
+        "hardwareRequests": null,
+        "snacks": null,
+        "prizes": null,
+        "song": null,
+        "referralSource": [],
+        "mlhAgreement": true,
+        "liabilityWaiver": true,
+        "mlhCommunication": false,
+        "underrepresented": null,
+        "workshopInterest": false
+      }
+    },
+    {
+      "id": "3",
+      "firstName": "Alice",
+      "lastName": "Johnson",
+      "email": "alicejohnson@gmail.com",
+      "applied": true,
+      "applicationDecision": "Accepted",
+      "rsvpStatus": "Accepted",
+      "organizer": false
+    },
+    {
+      "id": "4",
+      "firstName": "Bob",
+      "lastName": "Brown",
+      "email": "bobbrown@gmail.com",
+      "applied": true,
+      "applicationDecision": "Rejected",
+      "rsvpStatus": "N/A",
+      "organizer": false
+    },
+    {
+      "id": "5",
+      "firstName": "Charlie",
+      "lastName": "Davis",
+      "email": "charliedavis@gmail.com",
+      "applied": true,
+      "applicationDecision": "Accepted",
+      "rsvpStatus": "Accepted",
+      "organizer": false
+    },
+    {
+      "id": "6",
+      "firstName": "Eve",
+      "lastName": "Wilson",
+      "email": "evewilson@gmail.com",
+      "applied": true,
+      "applicationDecision": "Accepted",
+      "rsvpStatus": "Declined",
+      "organizer": false
+    },
+    {
+      "id": "7",
+      "firstName": "Frank",
+      "lastName": "Miller",
+      "email": "frankmiller@gmail.com",
+      "applied": true,
+      "applicationDecision": "Waitlisted",
+      "rsvpStatus": "N/A",
+      "organizer": false
+    },
+    {
+      "id": "8",
+      "firstName": "Grace",
+      "lastName": "Taylor",
+      "email": "am@g",
+      "applied": false,
+      "applicationDecision": "N/A",
+      "rsvpStatus": "N/A",
+      "organizer": true
+    },
+    {
+      "id": "9",
+      "firstName": "Hannah",
+      "lastName": "Anderson",
+      "email": "em@g",
+      "applied": false,
+      "applicationDecision": "N/A",
+      "rsvpStatus": "N/A",
+      "organizer": false
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

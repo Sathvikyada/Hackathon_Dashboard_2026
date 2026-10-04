@@ -1,0 +1,106 @@
+.rsvp-section {
+    max-width: 800px;
+    margin-top: 32px;
+    padding-top: 28px;
+
+    border-top: 1px solid var(--accent-light);
+}
+
+.rsvp-section h3 {
+    margin: 0 0 20px;
+
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2d2933;
+}
+
+.rsvp-section p {
+    margin: 0 0 20px;
+
+    line-height: 1.7;
+    color: var(--text);
+}
+
+.rsvp-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-top: 28px;
+}
+
+.rsvp-button {
+    padding: 10px 20px;
+
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    border-radius: 8px;
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* RSVP */
+.rsvp-accept-button {
+    color: #ffffff;
+    background-color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.rsvp-accept-button:hover {
+    background-color: #9228e6;
+    border-color: #9228e6;
+
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(170, 59, 255, 0.25);
+}
+
+/* Decline */
+.rsvp-decline-button {
+    color: var(--accent);
+    background-color: transparent;
+    border: 2px solid var(--accent);
+}
+
+.rsvp-decline-button:hover {
+    color: #ffffff;
+    background-color: var(--accent);
+
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(170, 59, 255, 0.15);
+}
+
+.rsvp-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.rsvp-button:focus-visible {
+    outline: 3px solid var(--accent-light);
+    outline-offset: 3px;
+}
+
+.rsvp-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+    transform: none;
+    box-shadow: none;
+}
+
+@media (max-width: 600px) {
+    .rsvp-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .rsvp-button {
+        width: 100%;
+    }
+}

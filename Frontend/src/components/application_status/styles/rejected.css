@@ -1,0 +1,66 @@
+.rejected-status {
+    max-width: 800px;
+    padding-top: 28px;
+}
+
+.rejected-status h2 {
+    margin: 0 0 24px;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d2933;
+}
+
+.rejected-status p {
+    margin: 0 0 20px;
+
+    line-height: 1.7;
+    color: var(--text);
+}
+
+.rejected-actions {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 32px;
+}
+
+.rejected-hackathons-button {
+    display: inline-block;
+    padding: 10px 20px;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    color: var(--accent);
+    background-color: transparent;
+
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.rejected-hackathons-button:hover {
+    color: #ffffff;
+    background-color: var(--accent);
+
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(170, 59, 255, 0.2);
+}
+
+.rejected-hackathons-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.rejected-hackathons-button:focus-visible {
+    outline: 3px solid var(--accent-light);
+    outline-offset: 3px;
+}

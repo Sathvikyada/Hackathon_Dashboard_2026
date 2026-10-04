@@ -1,0 +1,22 @@
+.rsvp-declined {
+    max-width: 800px;
+    margin-top: 32px;
+    padding-top: 28px;
+
+    border-top: 1px solid var(--accent-light);
+}
+
+.rsvp-declined h3 {
+    margin: 0 0 20px;
+
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2d2933;
+}
+
+.rsvp-declined p {
+    margin: 0 0 20px;
+
+    line-height: 1.7;
+    color: var(--text);
+}
