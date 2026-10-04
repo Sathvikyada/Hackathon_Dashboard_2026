@@ -7,6 +7,7 @@ export interface TextFieldConfig {
     required: boolean;
     inputType: 'text' | 'email' | 'tel' | 'number' | 'url';
     width: FieldWidth;
+    filterable: boolean;
 }
 
 export interface SelectFieldConfig {
@@ -16,6 +17,7 @@ export interface SelectFieldConfig {
     required: boolean;
     options: string[];
     width: FieldWidth;
+    filterable: boolean;
 }
 
 export interface LongTextFieldConfig {
@@ -25,6 +27,7 @@ export interface LongTextFieldConfig {
     required: boolean;
     description?: string;
     rows: number;
+    filterable: boolean;
 }
 
 export interface RadioFieldConfig {
@@ -34,6 +37,7 @@ export interface RadioFieldConfig {
     required: boolean;
     options: string[];
     width: FieldWidth;
+    filterable: boolean;
 }
 
 export interface CheckboxFieldConfig {
@@ -44,6 +48,7 @@ export interface CheckboxFieldConfig {
     description?: string;
     options: string[];
     width: FieldWidth;
+    filterable: boolean;
 }
 
 export interface FileFieldConfig {
@@ -52,8 +57,9 @@ export interface FileFieldConfig {
     label: string;
     required: boolean;
     description?: string;
-    accept?: string;
+    accept: string;
     width: FieldWidth;
+    filterable: boolean;
 }
 
 export interface AgreementFieldConfig {
@@ -62,6 +68,7 @@ export interface AgreementFieldConfig {
     label: string;
     required: boolean;
     width: FieldWidth;
+    filterable: boolean;
 }
 
 export type FieldConfig =

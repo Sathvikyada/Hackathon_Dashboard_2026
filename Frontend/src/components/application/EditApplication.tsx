@@ -36,7 +36,12 @@ const EditApplication = ({user, setUser }: EditApplicationProps) => {
     }
 
     return (
-        <ApplicationForm user={user} application={user.application} submitForm={submitForm} submitText="Modify Application" />
+        <ApplicationForm
+            user={user}
+            application={user.application}
+            submitForm={submitForm}
+            submitText="Modify Application"
+        />
     );
 }
 

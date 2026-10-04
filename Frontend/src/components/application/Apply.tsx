@@ -17,9 +17,9 @@ const Apply = ({ user, setUser }: ApplyProps) => {
         const result = await handleSubmit(formData, userID);
 
         if (result.success) {
-            navigate('/', { replace: true });
             setUser(result.personData);
             toast.success('Application submitted successfully!');
+            navigate('/', { replace: true });
         } else {
             toast.error(result.error);
         }

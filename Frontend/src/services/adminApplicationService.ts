@@ -14,16 +14,6 @@ async function getAllParticipants(): Promise<Person[]> {
     return participants;
 }
 
-function filterParticipants(participants: Person[], filters: string[]): Person[] {
-    return participants.filter(person => {
-        return filters.every(filter => {
-            return Object.values(person).some(value => 
-                typeof value === 'string' && value.toLowerCase().includes(filter.toLowerCase())
-            );
-        });
-    });
-}
-
 async function getParticipantById(id: string): Promise<Person> {
     const response = await fetch(`${DATABASE_API_URL}/${id}`);
 
@@ -35,4 +25,4 @@ async function getParticipantById(id: string): Promise<Person> {
     return person;
 }
 
-export { getAllParticipants, filterParticipants, getParticipantById };
+export { getAllParticipants, getParticipantById };
