@@ -7,7 +7,9 @@ import { getAllParticipants } from '../../../services/adminApplicationService';
 import { useEffect, useState } from 'react';
 
 import ApplicationsTable from './ApplicationsTable';
-import ParticipantFilters, { type ParticipantFilter } from './ApplicationsFilter';
+import type { ParticipantFilter } from './filter/filterTypes';
+import ApplicationsFilter from './filter/ApplicationsFilter';
+import { filterParticipants } from './filter/filterParticipants';
 
 const Applications = () => {
     const [participants, setParticipants] = useState<Person[]>([]);
@@ -26,20 +28,22 @@ const Applications = () => {
         fetchParticipants();
     }, []);
 
+    const filteredParticipants = filterParticipants(participants, filters);
+
     return (
         <section className="content-page applications-page">
             <div className="content-card applications-card">
                 <div className="applications-heading">
                     <h1>Applications</h1>
-                    <p>{participants.length} participants</p>
+                    <p>{filteredParticipants.length} of {participants.length} participants</p>
                 </div>
                 
-                <ParticipantFilters
+                <ApplicationsFilter
                     filters={filters}
                     setFilters={setFilters}
                 />
 
-                <ApplicationsTable participants={participants} />
+                <ApplicationsTable participants={filteredParticipants} />
 
             </div>
         </section>
