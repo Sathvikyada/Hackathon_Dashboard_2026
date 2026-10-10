@@ -1,6 +1,7 @@
 import type { Person } from '../../../../types/person';
 import type { ParticipantFilter } from './filterTypes';
 
+// Get the value from the participant person or response
 const getParticipantValue = (participant: Person, filter: ParticipantFilter) => {
     if (filter.source === 'person') {
         switch (filter.fieldId) {
@@ -21,6 +22,7 @@ const getParticipantValue = (participant: Person, filter: ParticipantFilter) => 
     return participant.application?.answers[filter.fieldId];
 };
 
+// Check if the filter has a complete value
 const isFilterComplete = (filter: ParticipantFilter) => {
     if (filter.fieldId === '') {
         return false;
@@ -33,10 +35,13 @@ const isFilterComplete = (filter: ParticipantFilter) => {
     return filter.value.trim() !== '';
 };
 
+// Normalize a string value for comparison
 const normalizeString = (value: string | number | boolean) => {
     return String(value).trim().toLowerCase();
 };
 
+
+// Check if two arrays of values are equal after normalization
 const arraysEqual = (participantValues: string[], filterValues: string[]) => {
     if (participantValues.length !== filterValues.length) {
         return false;
@@ -53,7 +58,7 @@ const arraysEqual = (participantValues: string[], filterValues: string[]) => {
     );
 };
 
-
+// Check if a participant matches a given filter based on multiple or single value
 const matchesFilter = (participant: Person, filter: ParticipantFilter) => {
     const participantValue = getParticipantValue(participant, filter);
 
@@ -99,8 +104,8 @@ const matchesFilter = (participant: Person, filter: ParticipantFilter) => {
         return false;
     }
 
+    // Single-value field
     const normalizedParticipantValue = normalizeString(participantValue);
-
     const normalizedFilterValue = normalizeString(filter.value);
 
     switch (filter.operator) {

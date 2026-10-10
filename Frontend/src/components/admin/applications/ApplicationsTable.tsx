@@ -37,6 +37,8 @@ const getRSVPClass = (status: Person['rsvpStatus']) => {
 const ApplicationsTable = ({ participants }: ApplicationsTableProps) => {
     const navigate = useNavigate();
 
+    const applicantIds = participants.map(p => p.id);
+
     return (
         <div className="applications-table-container">
             <table className="applications-table">
@@ -56,7 +58,9 @@ const ApplicationsTable = ({ participants }: ApplicationsTableProps) => {
                         <tr
                             key={participant.id}
                             onClick={() =>
-                                navigate(`/applicant/${participant.id}`)
+                                navigate(`/applicant/${participant.id}`, {
+                                    state: {applicantIds}
+                                })
                             }
                         >
                             <td>{participant.firstName} {participant.lastName}</td>

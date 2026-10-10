@@ -65,6 +65,7 @@ const Nav = ({ user, setUser, pageOptions }: NavProps) => {
                             type="button"
                             className="nav-auth-button"
                             onClick={() => {
+                                sessionStorage.removeItem('applicationFilters');
                                 setUser(null)
                                 toast.success('Sign-out successful!');
                             }}

@@ -116,7 +116,7 @@ function App() {
             path="/applicant/:id"
             element = {
               <ProtectedRoute user={user} pageOptions={pageOptions} option="Applicant">
-                <Applicant />
+                {user && <Applicant user={user} />}
               </ProtectedRoute>
             }
           />

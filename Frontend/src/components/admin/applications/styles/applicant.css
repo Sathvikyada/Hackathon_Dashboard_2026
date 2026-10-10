@@ -3,23 +3,142 @@
     margin: 0 auto;
 }
 
+
+/* ---------------- Applicant Navigation ---------------- */
+
+.applicant-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+
+    margin-bottom: 24px;
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid rgba(170, 59, 255, 0.18);
+}
+
+.applicant-navigation span {
+    color: #6b6670;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.applicant-navigation button {
+    min-width: 110px;
+    padding: 9px 16px;
+
+    color: var(--heading-card);
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    background: #fff;
+
+    border: 1px solid var(--accent-light);
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.applicant-navigation button:hover:not(:disabled) {
+    background: var(--accent-surface);
+    border-color: var(--accent);
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 3px 8px rgba(170, 59, 255, 0.14);
+}
+
+.applicant-navigation button:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.applicant-navigation button:disabled {
+    color: #9a959e;
+    background: #f2eff4;
+
+    border-color: #d9d5dd;
+
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.applicant-navigation button:focus-visible {
+    outline: 3px solid rgba(170, 59, 255, 0.18);
+    outline-offset: 2px;
+}
+
+/* ---------------- Top Actions ---------------- */
+
+.applicant-top-actions {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 16px;
+}
+
+.back-to-applications {
+    padding: 8px 12px;
+
+    color: var(--heading-card);
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    background: transparent;
+
+    border: none;
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.back-to-applications:hover {
+    color: var(--accent);
+    background: rgba(170, 59, 255, 0.08);
+}
+
+.back-to-applications:focus-visible {
+    outline: 3px solid rgba(170, 59, 255, 0.18);
+    outline-offset: 2px;
+}
+
+
+/* ---------------- Application Decision ---------------- */
+
 .applicant-decision {
     padding-top: 32px;
 }
 
 .applicant-decision h2 {
     margin: 0 0 12px;
+
+    color: var(--heading-card);
     font-size: 1.25rem;
 }
 
 .applicant-decision p {
     margin: 0 0 24px;
+
+    color: var(--text);
 }
 
 .applicant-decision-buttons {
     display: flex;
-    gap: 12px;
     flex-wrap: wrap;
+    gap: 12px;
 }
 
 .decision-button {
@@ -37,16 +156,23 @@
 
     transition:
         transform 0.2s ease,
-        box-shadow 0.2s ease;
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
 }
 
 .decision-button:hover {
     transform: translateY(-1px);
+
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
 .decision-button:active {
     transform: translateY(0);
+}
+
+.decision-button:focus-visible {
+    outline: 3px solid var(--accent-light);
+    outline-offset: 3px;
 }
 
 .decision-button.accept {
@@ -61,12 +187,44 @@
     background-color: #b83a3a;
 }
 
+
+/* ---------------- Responsive ---------------- */
+
 @media (max-width: 700px) {
+    .applicant-navigation {
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .applicant-navigation button {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .applicant-navigation span {
+        flex: 0 0 auto;
+        text-align: center;
+    }
+
     .applicant-decision-buttons {
         flex-direction: column;
     }
 
     .decision-button {
         width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .applicant-navigation {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .applicant-navigation span {
+        grid-column: 1 / -1;
+        grid-row: 1;
+
+        text-align: center;
     }
 }

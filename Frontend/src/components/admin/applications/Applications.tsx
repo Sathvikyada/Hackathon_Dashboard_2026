@@ -5,15 +5,43 @@ import type { Person } from '../../../types/person';
 import { getAllParticipants } from '../../../services/adminApplicationService';
 
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import ApplicationsTable from './ApplicationsTable';
 import type { ParticipantFilter } from './filter/filterTypes';
 import ApplicationsFilter from './filter/ApplicationsFilter';
 import { filterParticipants } from './filter/filterParticipants';
 
+const FILTER_STORAGE_KEY = 'applicationFilters';
+
 const Applications = () => {
     const [participants, setParticipants] = useState<Person[]>([]);
-    const [filters, setFilters] = useState<ParticipantFilter[]>([]);
+
+    const [filters, setFilters] = useState<ParticipantFilter[]>(() => {
+        const storedFilters = sessionStorage.getItem(FILTER_STORAGE_KEY);
+
+        if (!storedFilters) {
+            return [];
+        }
+
+        try {
+            return JSON.parse(storedFilters);
+        } catch {
+            return [];
+        }
+    });
+
+    useEffect(() => {
+        if (filters.length === 0) {
+            sessionStorage.removeItem(FILTER_STORAGE_KEY);
+            return;
+        }
+
+        sessionStorage.setItem(
+            FILTER_STORAGE_KEY,
+            JSON.stringify(filters)
+        );
+    }, [filters]);
 
     useEffect(() => {
         const fetchParticipants = async () => {
@@ -21,6 +49,7 @@ const Applications = () => {
                 const data = await getAllParticipants();
                 setParticipants(data);
             } catch (error) {
+                toast.error('Failed to load participants');
                 console.error(error);
             }
         };

@@ -52,10 +52,11 @@
 .applicant-status {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 
-    min-width: 170px;
-    padding: 14px 18px;
+    min-width: 320px;
+    max-width: 420px;
+    padding: 18px 20px;
 
     background: rgba(255, 255, 255, 0.65);
 
@@ -63,7 +64,7 @@
     border-radius: 10px;
 }
 
-.applicant-status span {
+.applicant-status > span {
     color: #6b6670;
     font-size: 0.68rem;
     font-weight: 700;
@@ -75,6 +76,45 @@
 .applicant-status strong {
     color: var(--text-h);
     font-size: 0.95rem;
+    line-height: 1.3;
+}
+
+.applicant-status-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+
+    padding-top: 12px;
+
+    border-top: 1px solid rgba(170, 59, 255, 0.16);
+}
+
+.applicant-status-metadata {
+    min-width: 0;
+}
+
+.applicant-status-metadata span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #6b6670;
+    font-size: 0.65rem;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.applicant-status-metadata p {
+    margin: 0;
+
+    color: var(--text);
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.4;
+
+    overflow-wrap: anywhere;
 }
 
 
@@ -95,7 +135,7 @@
 }
 
 
-/* ---------------- Short Information Grid ---------------- */
+/* ---------------- Information Grid ---------------- */
 
 .applicant-info-grid {
     display: grid;
@@ -104,18 +144,8 @@
     gap: 12px;
 }
 
-/* Spacing between grids and long-answer boxes */
 
-.applicant-info-grid + .applicant-long-info {
-    margin-top: 12px;
-}
-
-.applicant-long-info + .applicant-info-grid {
-    margin-top: 12px;
-}
-
-
-/* Individual information box */
+/* ---------------- Standard Information Fields ---------------- */
 
 .applicant-info {
     min-width: 0;
@@ -156,7 +186,9 @@
 /* ---------------- Long Answer Fields ---------------- */
 
 .applicant-long-info {
-    margin-top: 12px;
+    grid-column: 1 / -1;
+
+    min-width: 0;
     padding: 16px 18px;
 
     background: rgba(255, 255, 255, 0.65);
@@ -189,13 +221,6 @@
 
     white-space: pre-wrap;
     overflow-wrap: anywhere;
-}
-
-
-/* When long information follows a grid */
-
-.applicant-info-grid + .applicant-long-info {
-    margin-top: 12px;
 }
 
 
@@ -246,6 +271,12 @@
 
     .applicant-status {
         width: 100%;
+        min-width: 0;
+        max-width: none;
+    }
+
+    .applicant-status-details {
+        grid-template-columns: 1fr;
     }
 
     .applicant-header h1 {
@@ -254,6 +285,10 @@
 
     .applicant-info-grid {
         grid-template-columns: 1fr;
+    }
+
+    .applicant-long-info {
+        grid-column: 1;
     }
 
     .applicant-section {

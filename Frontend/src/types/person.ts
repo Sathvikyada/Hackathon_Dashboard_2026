@@ -10,4 +10,7 @@ export interface Person {
     rsvpStatus: 'Pending' | 'Accepted' | 'Declined' | 'N/A';
     organizer: boolean;
     application?: Application;
+    applicationDecisionLastModified?: string | null;
+    applicationDecisionModifiedBy?: string | null;
+    applicationDecisionModifiedByName?: string | null;
 }
