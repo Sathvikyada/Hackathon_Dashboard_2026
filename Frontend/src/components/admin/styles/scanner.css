@@ -1,5 +1,5 @@
 .scanner-card {
-    max-width: 850px;
+    max-width: 640px;
     margin: 0 auto;
 }
 
@@ -7,9 +7,9 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 24px;
+    gap: 14px;
 
-    margin-bottom: 28px;
+    margin-bottom: 18px;
 }
 
 .scanner-heading h1 {
@@ -103,8 +103,8 @@
 /* ---------------- Status ---------------- */
 
 .scanner-error {
-    margin: 16px 0 0;
-    padding: 12px 14px;
+    margin: 12px 0 0;
+    padding: 10px 12px;
 
     color: #8c2f39;
 
@@ -121,7 +121,7 @@
     display: flex;
     justify-content: center;
 
-    margin-top: 20px;
+    margin-top: 16px;
 }
 
 .scanner-actions button {

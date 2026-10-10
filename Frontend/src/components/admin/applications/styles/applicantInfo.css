@@ -4,9 +4,9 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 32px;
+    gap: 18px;
 
-    padding-bottom: 28px;
+    padding-bottom: 18px;
 
     border-bottom: 2px solid var(--accent-light);
 }
@@ -16,7 +16,7 @@
     padding: 0;
 
     color: var(--heading-card);
-    font-size: 2rem;
+    font-size: 1.55rem;
     font-weight: 700;
 
     border: none;
@@ -52,11 +52,11 @@
 .applicant-status {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 
-    min-width: 320px;
-    max-width: 420px;
-    padding: 18px 20px;
+    min-width: 270px;
+    max-width: 340px;
+    padding: 12px 14px;
 
     background: rgba(255, 255, 255, 0.65);
 
@@ -82,9 +82,9 @@
 .applicant-status-details {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
+    gap: 10px;
 
-    padding-top: 12px;
+    padding-top: 10px;
 
     border-top: 1px solid rgba(170, 59, 255, 0.16);
 }
@@ -121,16 +121,16 @@
 /* ---------------- Sections ---------------- */
 
 .applicant-section {
-    padding: 30px 0;
+    padding: 18px 0;
 
     border-bottom: 1px solid rgba(170, 59, 255, 0.18);
 }
 
 .applicant-section h2 {
-    margin: 0 0 18px;
+    margin: 0 0 10px;
 
     color: var(--heading-card);
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 700;
 }
 
@@ -141,7 +141,7 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    gap: 12px;
+    gap: 8px;
 }
 
 
@@ -149,7 +149,7 @@
 
 .applicant-info {
     min-width: 0;
-    padding: 14px 16px;
+    padding: 10px 12px;
 
     background: rgba(255, 255, 255, 0.65);
 
@@ -160,7 +160,7 @@
 .applicant-info span {
     display: block;
 
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 
     color: #746b79;
     font-size: 0.68rem;
@@ -189,7 +189,7 @@
     grid-column: 1 / -1;
 
     min-width: 0;
-    padding: 16px 18px;
+    padding: 12px 14px;
 
     background: rgba(255, 255, 255, 0.65);
 
@@ -200,7 +200,7 @@
 .applicant-long-info span {
     display: block;
 
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 
     color: #746b79;
     font-size: 0.68rem;
@@ -243,7 +243,7 @@
 /* ---------------- No Application ---------------- */
 
 .applicant-info-empty {
-    padding: 40px 20px;
+    padding: 24px 16px;
 
     text-align: center;
 }
@@ -266,7 +266,7 @@
 @media (max-width: 700px) {
     .applicant-header {
         flex-direction: column;
-        gap: 20px;
+        gap: 16px;
     }
 
     .applicant-status {
@@ -280,7 +280,7 @@
     }
 
     .applicant-header h1 {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
     }
 
     .applicant-info-grid {
@@ -292,6 +292,6 @@
     }
 
     .applicant-section {
-        padding: 24px 0;
+        padding: 20px 0;
     }
 }

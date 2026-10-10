@@ -1,8 +1,8 @@
 .home {
     width: 100%;
-    max-width: 1200px;
+    max-width: 950px;
     margin: 0 auto;
-    padding: 64px 32px 80px;
+    padding: 24px 24px 48px;
 }
 
 /* =========================
@@ -10,16 +10,16 @@
    ========================= */
 
 .home-hero {
-    min-height: 560px;
+    min-height: 400px;
     display: grid;
     grid-template-columns: 1.4fr 0.8fr;
     align-items: center;
-    gap: 64px;
-    padding: 48px 0 80px;
+    gap: 36px;
+    padding: 20px 0 44px;
 }
 
 .home-hero-content {
-    max-width: 760px;
+    max-width: 590px;
 }
 
 .home-edition {
@@ -27,7 +27,7 @@
 }
 
 .home-eyebrow {
-    margin: 0 0 16px;
+    margin: 0 0 12px;
     color: var(--accent);
     font-size: 0.8rem;
     font-weight: 700;
@@ -37,14 +37,14 @@
 
 .home-hero h1 {
     margin: 0;
-    font-size: clamp(4rem, 8vw, 7rem);
+    font-size: clamp(3rem, 6vw, 5rem);
     line-height: 0.95;
     letter-spacing: -4px;
 }
 
 .home-tagline {
-    margin: 24px 0;
-    font-size: 1.5rem;
+    margin: 16px 0;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--text-h);
 }
@@ -52,22 +52,22 @@
 .home-description {
     max-width: 700px;
     margin: 0;
-    font-size: 1.05rem;
-    line-height: 1.75;
+    font-size: 1rem;
+    line-height: 1.6;
     color: var(--text);
 }
 
 .home-actions {
-    margin-top: 36px;
+    margin-top: 22px;
 }
 
 .home-apply-button,
 .home-cta-button {
     display: inline-flex;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
 
-    padding: 14px 24px;
+    padding: 10px 17px;
 
     color: white;
     background: var(--accent);
@@ -106,7 +106,7 @@
    ========================= */
 
 .home-event-card {
-    padding: 32px;
+    padding: 21px;
 
     background:
         linear-gradient(
@@ -116,14 +116,14 @@
         );
 
     color: white;
-    border-radius: 24px;
+    border-radius: 20px;
 
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
 }
 
 .home-event-number span {
     display: block;
-    font-size: 5rem;
+    font-size: 3.6rem;
     font-weight: 800;
     line-height: 1;
 }
@@ -138,14 +138,14 @@
 
 .home-event-divider {
     height: 1px;
-    margin: 28px 0;
+    margin: 18px 0;
     background: rgba(255, 255, 255, 0.35);
 }
 
 .home-event-text h2 {
     margin: 0 0 10px;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .home-event-text p {
@@ -162,9 +162,9 @@
 .home-about {
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
-    gap: 80px;
+    gap: 42px;
 
-    padding: 80px 0;
+    padding: 44px 0;
 
     border-top: 1px solid var(--accent-light);
 }
@@ -182,20 +182,20 @@
 
 .home-about-heading h2 {
     margin: 0;
-    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-size: clamp(1.65rem, 3vw, 2.35rem);
     line-height: 1.1;
 }
 
 .home-about-content {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
 }
 
 .home-about-content p {
     margin: 0;
-    font-size: 1.05rem;
-    line-height: 1.8;
+    font-size: 1rem;
+    line-height: 1.65;
 }
 
 
@@ -206,14 +206,14 @@
 .home-features {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 16px;
 
-    padding-bottom: 80px;
+    padding-bottom: 44px;
 }
 
 .home-feature {
-    min-height: 260px;
-    padding: 30px;
+    min-height: 185px;
+    padding: 20px;
 
     background: rgba(255, 255, 255, 0.48);
 
@@ -238,8 +238,8 @@
 }
 
 .home-feature h3 {
-    margin: 48px 0 12px;
-    font-size: 1.6rem;
+    margin: 28px 0 8px;
+    font-size: 1.25rem;
 }
 
 .home-feature p {
@@ -253,13 +253,13 @@
    ========================= */
 
 .home-cta {
-    padding: 72px 40px;
+    padding: 42px 30px;
 
     text-align: center;
 
     background: rgba(215, 168, 255, 0.25);
     border: 1px solid var(--accent-light);
-    border-radius: 24px;
+    border-radius: 20px;
 }
 
 .home-cta > p {
@@ -273,8 +273,8 @@
 }
 
 .home-cta h2 {
-    margin: 0 0 32px;
-    font-size: clamp(2rem, 4vw, 3.4rem);
+    margin: 0 0 20px;
+    font-size: clamp(1.65rem, 3vw, 2.5rem);
 }
 
 
@@ -284,13 +284,13 @@
 
 @media (max-width: 900px) {
     .home {
-        padding: 40px 24px 60px;
+        padding: 28px 24px 48px;
     }
 
     .home-hero {
         grid-template-columns: 1fr;
-        gap: 40px;
-        padding: 32px 0 64px;
+        gap: 32px;
+        padding: 24px 0 48px;
     }
 
     .home-hero h1 {
@@ -303,8 +303,8 @@
 
     .home-about {
         grid-template-columns: 1fr;
-        gap: 36px;
-        padding: 64px 0;
+        gap: 28px;
+        padding: 48px 0;
     }
 
     .home-features {
@@ -322,7 +322,7 @@
 
 @media (max-width: 600px) {
     .home {
-        padding: 28px 16px 48px;
+        padding: 20px 16px 40px;
     }
 
     .home-hero {
@@ -330,7 +330,7 @@
     }
 
     .home-hero h1 {
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
 
     .home-tagline {
@@ -338,7 +338,7 @@
     }
 
     .home-event-card {
-        padding: 26px;
+        padding: 22px;
     }
 
     .home-event-number span {
@@ -346,6 +346,6 @@
     }
 
     .home-cta {
-        padding: 48px 24px;
+        padding: 40px 22px;
     }
 }

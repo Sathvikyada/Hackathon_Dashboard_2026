@@ -1,12 +1,17 @@
+.content-card:has(> .meals-description) {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
 .meals-description {
-    margin: 28px 0;
+    margin: 18px 0;
     line-height: 1.6;
 }
 
 .meals-list {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 8px;
 }
 
 .meal {
@@ -25,7 +30,8 @@
     justify-content: space-between;
     align-items: center;
 
-    padding: 18px 22px;
+    min-height: 44px;
+    padding: 10px 14px;
 
     border: none;
     background: transparent;
@@ -33,7 +39,7 @@
     color: var(--text-h);
 
     font: inherit;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
 
     cursor: pointer;
@@ -57,7 +63,7 @@
 }
 
 .meal-qr-section {
-    padding: 8px 22px 28px;
+    padding: 4px 14px 18px;
 
     text-align: center;
 
@@ -65,7 +71,7 @@
 }
 
 .meal-qr-section p {
-    margin: 20px 0;
+    margin: 12px 0;
 
     font-size: 0.95rem;
     font-weight: 600;
@@ -75,9 +81,15 @@
     width: fit-content;
 
     margin: 0 auto;
-    padding: 16px;
+    padding: 10px;
 
     background: white;
 
     border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .meal-dropdown-button {
+        min-height: 48px;
+    }
 }

@@ -1,36 +1,36 @@
 .rsvp-section {
-    max-width: 800px;
-    margin-top: 32px;
-    padding-top: 28px;
+    max-width: 620px;
+    margin-top: 18px;
+    padding-top: 16px;
 
     border-top: 1px solid var(--accent-light);
 }
 
 .rsvp-section h3 {
-    margin: 0 0 20px;
+    margin: 0 0 12px;
 
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: #2d2933;
 }
 
 .rsvp-section p {
-    margin: 0 0 20px;
+    margin: 0 0 12px;
 
-    line-height: 1.7;
+    line-height: 1.55;
     color: var(--text);
 }
 
 .rsvp-actions {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
 
-    margin-top: 28px;
+    margin-top: 16px;
 }
 
 .rsvp-button {
-    padding: 10px 20px;
+    padding: 8px 16px;
 
     font: inherit;
     font-size: 0.95rem;
@@ -102,5 +102,6 @@
 
     .rsvp-button {
         width: 100%;
+        min-height: 44px;
     }
 }

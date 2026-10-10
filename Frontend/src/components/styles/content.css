@@ -2,14 +2,14 @@
 
 .content-page {
     width: 100%;
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 24px;
+    max-width: 880px;
+    margin: 24px auto;
+    padding: 0 18px;
 }
 
 .content-card {
     width: 100%;
-    padding: 32px 40px 40px;
+    padding: 24px 28px 28px;
 
     background: var(--accent-surface, #f1e4ff);
     border: 1px solid var(--accent-light);
@@ -21,10 +21,10 @@
 /* Page heading */
 .content-card h1 {
     margin: 0;
-    padding-bottom: 14px;
+    padding-bottom: 10px;
 
     color: var(--heading-card);
-    font-size: 2rem;
+    font-size: 1.55rem;
     font-weight: 700;
 
     border-bottom: 2px solid var(--accent-light);
@@ -32,17 +32,21 @@
 
 /* Space between heading and page content */
 .content-card h1 + * {
-    margin-top: 28px;
+    margin-top: 18px;
 }
 
 @media (max-width: 768px) {
     .content-page {
-        margin: 24px auto;
+        margin: 20px auto;
         padding: 0 16px;
     }
 
     .content-card {
-        padding: 24px;
+        padding: 22px;
         border-radius: 14px;
+    }
+
+    .content-card h1 {
+        font-size: 1.65rem;
     }
 }

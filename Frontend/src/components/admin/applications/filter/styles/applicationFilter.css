@@ -1,6 +1,6 @@
 .participant-filters {
-    margin: 28px 0 32px;
-    padding: 20px;
+    margin: 16px 0 18px;
+    padding: 12px;
     background: rgba(255, 255, 255, 0.28);
     border: 1px solid var(--accent-light);
     border-radius: 14px;
@@ -10,25 +10,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 18px;
+    gap: 12px;
+    margin-bottom: 10px;
 }
 
 .participant-filters-header h2 {
     margin: 0;
     color: var(--heading-card);
-    font-size: 1.15rem;
+    font-size: 1rem;
 }
 
 .participant-filters-actions {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .participant-filters-actions button,
 .participant-filter-row button {
-    padding: 9px 14px;
+    padding: 7px 11px;
     font: inherit;
     font-size: 0.9rem;
     font-weight: 600;
@@ -66,7 +66,7 @@
 
 .participant-filters-empty {
     margin: 0;
-    padding: 12px 0 2px;
+    padding: 8px 0 2px;
     color: #68636d;
     font-size: 0.95rem;
 }
@@ -74,7 +74,7 @@
 .participant-filter-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
 }
 
 .participant-filter-row {
@@ -85,9 +85,9 @@
         minmax(200px, 1.4fr)
         auto;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
 
-    padding: 14px;
+    padding: 9px;
     background: rgba(255, 255, 255, 0.48);
     border: 1px solid var(--accent-light);
     border-radius: 10px;
@@ -97,7 +97,7 @@
 .participant-filter-row input[type="text"] {
     width: 100%;
     min-width: 0;
-    padding: 10px 12px;
+    padding: 7px 10px;
 
     font: inherit;
     font-size: 0.9rem;
@@ -127,8 +127,8 @@
 }
 
 .participant-filter-row select[multiple] {
-    min-height: 110px;
-    padding: 6px;
+    min-height: 90px;
+    padding: 5px;
 }
 
 .participant-filter-row select[multiple] option {
@@ -180,6 +180,7 @@
 
     .participant-filters-actions button {
         flex: 1;
+        min-height: 44px;
     }
 
     .participant-filter-row {
@@ -188,5 +189,11 @@
 
     .participant-filter-row > button {
         width: 100%;
+        min-height: 44px;
+    }
+
+    .participant-filter-row select:not([multiple]),
+    .participant-filter-row input[type="text"] {
+        min-height: 44px;
     }
 }

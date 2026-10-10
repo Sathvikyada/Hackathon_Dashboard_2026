@@ -1,17 +1,22 @@
+.content-card:has(> .sign-in-form) {
+    max-width: 620px;
+    margin: 0 auto;
+}
+
 .sign-in-form {
     width: 100%;
-    max-width: 520px;
+    max-width: 400px;
 
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
 }
 
 /* Label + input */
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 
 .form-group label {
@@ -23,7 +28,7 @@
 /* Email input */
 .form-group input {
     width: 100%;
-    padding: 12px 14px;
+    padding: 9px 12px;
 
     font: inherit;
     color: var(--text);
@@ -51,7 +56,7 @@
 .sign-in-form button {
     align-self: flex-start;
 
-    padding: 11px 24px;
+    padding: 9px 18px;
 
     font: inherit;
     font-weight: 600;
@@ -77,4 +82,11 @@
 
 .sign-in-form button:active {
     transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .form-group input,
+    .sign-in-form button {
+        min-height: 44px;
+    }
 }

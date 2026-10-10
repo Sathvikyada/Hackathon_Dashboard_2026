@@ -1,13 +1,13 @@
 /* Applications page is wider than the standard content page
    because the table contains several columns. */
 .applications-page {
-    max-width: 1500px;
+    max-width: 1280px;
 }
 
 
 /* Keep the same card design as the rest of the site. */
 .applications-card {
-    padding: 32px 40px 40px;
+    padding: 22px 26px 26px;
 }
 
 
@@ -18,7 +18,7 @@
     justify-content: space-between;
     align-items: flex-end;
 
-    padding-bottom: 14px;
+    padding-bottom: 10px;
 
     border-bottom: 2px solid var(--accent-light);
 }
@@ -28,7 +28,7 @@
     padding: 0;
 
     color: var(--heading-card);
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 700;
 
     border-bottom: none;
@@ -47,7 +47,7 @@
 
 @media (max-width: 768px) {
     .applications-card {
-        padding: 24px;
+        padding: 22px;
     }
 
     .applications-heading {
@@ -57,7 +57,7 @@
     }
 
     .applications-heading h1 {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
     }
 
     .applications-heading p {

@@ -1,20 +1,25 @@
+.content-card:has(> .accepted-status) {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
 .accepted-status {
-    max-width: 800px;
-    padding-top: 28px;
+    max-width: 620px;
+    padding-top: 16px;
 }
 
 .accepted-status h2 {
-    margin: 0 0 24px;
+    margin: 0 0 14px;
 
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: #2d2933;
 }
 
 .accepted-status p {
-    margin: 0 0 20px;
+    margin: 0 0 12px;
 
-    line-height: 1.7;
+    line-height: 1.55;
     color: var(--text);
 }
 

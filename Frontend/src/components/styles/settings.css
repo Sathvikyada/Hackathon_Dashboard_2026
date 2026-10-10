@@ -1,35 +1,55 @@
 .settings-card {
-    max-width: 700px;
+    max-width: 620px;
     margin: 0 auto;
 }
 
 .settings-intro {
-    margin-bottom: 28px;
+    margin-bottom: 20px;
 }
 
 .settings-form {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 18px;
 }
 
 .settings-submit {
     display: flex;
     justify-content: flex-end;
-    margin-top: 8px;
+    margin-top: 4px;
 }
 
 .settings-submit button {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    background: var(--accent);
-    color: white;
+    padding: 9px 18px;
+
     font: inherit;
     font-weight: 600;
+    color: #ffffff;
+
+    background-color: var(--accent);
+    border: none;
+    border-radius: 8px;
+
     cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
 }
 
 .settings-submit button:hover {
-    opacity: 0.9;
+    background-color: #9228e6;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(170, 59, 255, 0.25);
+}
+
+.settings-submit button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .settings-submit button {
+        min-height: 44px;
+    }
 }

@@ -3,11 +3,12 @@
 ======================================== */
 
 .apply-card {
-    max-width: 1000px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .apply-intro {
-    margin: 28px 0 36px;
+    margin: 18px 0 22px;
 
     line-height: 1.7;
     color: var(--text);
@@ -21,7 +22,7 @@
 .application-form {
     display: flex;
     flex-direction: column;
-    gap: 36px;
+    gap: 22px;
 }
 
 
@@ -32,10 +33,10 @@
 .form-section {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
+    gap: 16px;
 
     margin: 0;
-    padding: 28px;
+    padding: 18px;
 
     background-color: rgba(255, 255, 255, 0.3);
 
@@ -46,7 +47,7 @@
 .form-section > legend {
     padding: 0 10px;
 
-    font-size: 1.25rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--heading-card);
 }
@@ -68,7 +69,7 @@
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 
     min-width: 0;
 }
@@ -105,7 +106,7 @@
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 11px 13px;
+    padding: 8px 11px;
 
     font: inherit;
     color: var(--text);
@@ -123,7 +124,7 @@
 }
 
 .form-group textarea {
-    min-height: 90px;
+    min-height: 76px;
     resize: vertical;
 }
 
@@ -170,7 +171,7 @@
     align-items: center;
     flex-wrap: wrap;
 
-    gap: 16px 32px;
+    gap: 10px 18px;
 
     margin-top: 6px;
 }
@@ -212,8 +213,8 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    column-gap: 48px;
-    row-gap: 12px;
+    column-gap: 28px;
+    row-gap: 8px;
 
     margin-top: 8px;
 }
@@ -251,7 +252,7 @@
 
 .form-group input[type="file"] {
     width: 100%;
-    padding: 12px;
+    padding: 9px 11px;
 
     font: inherit;
     color: var(--text);
@@ -277,7 +278,7 @@
 ======================================== */
 
 .agreement-group {
-    padding: 16px;
+    padding: 11px;
 
     background-color: rgba(255, 255, 255, 0.4);
 
@@ -300,7 +301,7 @@
 }
 
 .application-submit button {
-    padding: 12px 28px;
+    padding: 9px 22px;
 
     font: inherit;
     font-weight: 600;
@@ -381,5 +382,16 @@
 
     .application-submit button {
         width: 100%;
+        min-height: 44px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="number"],
+    .form-group input[type="url"],
+    .form-group select,
+    .form-group input[type="file"] {
+        min-height: 44px;
     }
 }
