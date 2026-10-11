@@ -135,6 +135,28 @@
 
 
 /* ========================================
+   Field Limits
+======================================== */
+
+.field-limits {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+
+    margin-top: 4px;
+
+    color: #6b6670;
+    font-size: 0.8rem;
+}
+
+.field-limit-error {
+    color: #a83232;
+    font-weight: 600;
+}
+
+
+/* ========================================
    Input Focus
 ======================================== */
 
@@ -292,6 +314,40 @@
 
 
 /* ========================================
+   Application Errors
+======================================== */
+
+.application-errors {
+    padding: 12px 14px;
+
+    color: #8f2929;
+    background-color: #fff3f3;
+
+    border: 1px solid #e6b5b5;
+    border-radius: 8px;
+}
+
+.application-errors p {
+    margin: 0 0 8px;
+
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.application-errors ul {
+    margin: 0;
+    padding-left: 20px;
+
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.application-errors li + li {
+    margin-top: 4px;
+}
+
+
+/* ========================================
    Submit Button
 ======================================== */
 
@@ -385,6 +441,10 @@
         min-height: 44px;
     }
 
+    .form-group textarea {
+        min-height: 96px;
+    }
+
     .form-group input[type="text"],
     .form-group input[type="email"],
     .form-group input[type="tel"],
@@ -393,5 +453,9 @@
     .form-group select,
     .form-group input[type="file"] {
         min-height: 44px;
+    }
+
+    .application-errors {
+        padding: 12px;
     }
 }

@@ -8,6 +8,11 @@ export interface TextFieldConfig {
     inputType: 'text' | 'email' | 'tel' | 'number' | 'url';
     width: FieldWidth;
     filterable: boolean;
+
+    min?: number;
+    max?: number;
+
+    maxLength?: number;
 }
 
 export interface SelectFieldConfig {
@@ -28,6 +33,9 @@ export interface LongTextFieldConfig {
     description?: string;
     rows: number;
     filterable: boolean;
+    
+    maxLength?: number;
+    maxWords?: number;
 }
 
 export interface RadioFieldConfig {

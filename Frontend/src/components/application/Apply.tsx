@@ -1,7 +1,10 @@
 import type { Person } from '../../types/person';
+import type { SubmitApplicationResult } from '../../services/applicationService';
+
 import { handleSubmit } from '../../services/applicationService';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+
 import ApplicationForm from './ApplicationForm';
 
 
@@ -13,20 +16,28 @@ interface ApplyProps {
 const Apply = ({ user, setUser }: ApplyProps) => {
     const navigate = useNavigate();
 
-    async function submitForm(formData: FormData, userID: string): Promise<void> {
+    async function submitForm(formData: FormData, userID: string): Promise<SubmitApplicationResult> {
         const result = await handleSubmit(formData, userID);
 
         if (result.success) {
             setUser(result.personData);
-            toast.success('Application submitted successfully!');
+
+            toast.success(
+                'Application submitted successfully!'
+            );
+
             navigate('/', { replace: true });
-        } else {
-            toast.error(result.error);
         }
+
+        return result;
     }
 
     return (
-        <ApplicationForm user={user} submitForm={submitForm} submitText="Submit Application" />
+        <ApplicationForm
+            user={user}
+            submitForm={submitForm}
+            submitText="Submit Application"
+        />
     );
 };
 

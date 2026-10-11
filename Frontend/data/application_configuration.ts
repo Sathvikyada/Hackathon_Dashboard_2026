@@ -19,7 +19,8 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 required: true,
                 filterable: false,
                 inputType: 'tel',
-                width: 'half'
+                width: 'half',
+                maxLength: 25
             },
 
             {
@@ -29,7 +30,9 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 required: true,
                 filterable: false,
                 inputType: 'number',
-                width: 'half'
+                width: 'half',
+                min: 16,
+                max: 100
             },
 
             {
@@ -57,7 +60,8 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 required: false,
                 filterable: false,
                 inputType: 'text',
-                width: 'half'
+                width: 'half',
+                maxLength: 40
             },
 
             {
@@ -67,7 +71,8 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 required: true,
                 filterable: true,
                 inputType: 'text',
-                width: 'half'
+                width: 'half',
+                maxLength: 100
             },
 
             {
@@ -137,7 +142,8 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 required: false,
                 filterable: false,
                 inputType: 'url',
-                width: 'half'
+                width: 'half',
+                maxLength: 500
             },
 
             {
@@ -147,7 +153,8 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 required: false,
                 filterable: false,
                 inputType: 'url',
-                width: 'half'
+                width: 'half',
+                maxLength: 500
             },
 
             {
@@ -157,7 +164,8 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 required: false,
                 filterable: false,
                 inputType: 'url',
-                width: 'half'
+                width: 'half',
+                maxLength: 500
             },
 
             {
@@ -172,7 +180,9 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                     'S',
                     'M',
                     'L',
-                    'XL'
+                    'XL',
+                    'XXL',
+                    'XXXL'
                 ],
 
                 width: 'half'
@@ -192,7 +202,8 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 required: true,
                 filterable: true,
                 inputType: 'text',
-                width: 'half'
+                width: 'half',
+                maxLength: 100
             },
 
             {
@@ -202,34 +213,38 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 required: true,
                 filterable: true,
                 inputType: 'text',
-                width: 'half'
+                width: 'half',
+                maxLength: 100
             },
-
             {
-                type: 'text',
+                type: 'select',
                 id: 'graduationYear',
                 label: 'Graduation Year',
                 required: true,
                 filterable: true,
-                inputType: 'number',
+                options: [
+                    '2027',
+                    '2028',
+                    '2029',
+                    '2030',
+                    '2031',
+                    '2032',
+                    '2033',
+                    '2034',
+                    '2035'
+                ],
                 width: 'half'
             },
-
             {
-                type: 'select',
+                type: 'radio',
                 id: 'educationLevel',
-                label: 'Highest Completed Education Level',
+                label: 'Education Level',
                 required: true,
                 filterable: true,
 
                 options: [
-                    'High School / Secondary School',
-                    'Some College / University',
-                    'Associate Degree',
-                    "Bachelor's Degree",
-                    "Master's Degree",
-                    'Doctoral Degree',
-                    'Other'
+                    'Undergraduate Student',
+                    'Graduate Student'
                 ],
 
                 width: 'half'
@@ -265,7 +280,9 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 required: false,
                 filterable: false,
                 inputType: 'number',
-                width: 'half'
+                width: 'half',
+                min: 0,
+                max: 100
             },
 
             {
@@ -290,7 +307,8 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                     'If yes, what did you think of your experience?',
                 required: false,
                 filterable: false,
-                rows: 4
+                rows: 4,
+                maxLength: 400
             }
         ]
     },
@@ -306,7 +324,8 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 label: 'What programming skills do you have?',
                 required: false,
                 filterable: false,
-                rows: 3
+                rows: 3,
+                maxLength: 400
             },
 
             {
@@ -315,7 +334,8 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 label: 'What hardware skills do you have?',
                 required: false,
                 filterable: false,
-                rows: 3
+                rows: 3,
+                maxLength: 400
             },
 
             {
@@ -324,7 +344,8 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 label: 'What other skills do you have?',
                 required: false,
                 filterable: false,
-                rows: 3
+                rows: 3,
+                maxLength: 400
             },
 
             {
@@ -356,7 +377,8 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 required: true,
                 filterable: false,
                 description: 'Maximum 200 words.',
-                rows: 6
+                rows: 6,
+                maxWords: 200
             },
 
             {
@@ -367,7 +389,8 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 required: true,
                 filterable: false,
                 description: 'Maximum 200 words.',
-                rows: 6
+                rows: 6,
+                maxWords: 200
             }
         ]
     },
@@ -404,7 +427,8 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                     'If you selected Travel Stipend, where would you be traveling from and what is your estimated cost of travel?',
                 required: false,
                 filterable: false,
-                rows: 3
+                rows: 3,
+                maxLength: 400
             }
         ]
     },
@@ -435,7 +459,8 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 label: 'Food preferences / restrictions',
                 required: false,
                 filterable: false,
-                rows: 3
+                rows: 3,
+                maxLength: 400
             },
 
             {
@@ -444,7 +469,8 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 label: "Hardware you'd like us to provide",
                 required: false,
                 filterable: false,
-                rows: 3
+                rows: 3,
+                maxLength: 400
             },
 
             {
@@ -454,7 +480,8 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 required: false,
                 filterable: false,
                 inputType: 'text',
-                width: 'half'
+                width: 'half',
+                maxLength: 200
             },
 
             {
@@ -464,7 +491,8 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 required: false,
                 filterable: false,
                 inputType: 'text',
-                width: 'half'
+                width: 'half',
+                maxLength: 200
             },
 
             {
@@ -474,7 +502,8 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 required: false,
                 filterable: false,
                 inputType: 'text',
-                width: 'half'
+                width: 'half',
+                maxLength: 200
             }
         ]
     },

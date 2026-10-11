@@ -1,7 +1,9 @@
 import '../styles/content.css';
 import './styles/application.css';
+import { useState } from 'react';
 import { useFormStatus } from 'react-dom';
 
+import type { SubmitApplicationResult } from '../../services/applicationService';
 import type { Person } from '../../types/person';
 import type { FieldConfig } from '../../types/ApplyConfig';
 import type { Application } from '../../types/Application';
@@ -24,7 +26,7 @@ interface ApplicationProps {
     submitForm: (
         formData: FormData,
         userID: string
-    ) => Promise<void>;
+    ) => Promise<SubmitApplicationResult>;
     submitText: string;
 }
 
@@ -49,6 +51,20 @@ const ApplicationForm = ({
     submitForm,
     submitText
 }: ApplicationProps) => {
+    const [errors, setErrors] = useState<string[]>([]);
+
+    const handleFormAction = async (formData: FormData) => {
+        setErrors([]);
+        const result = await submitForm(formData, user.id);
+
+        if (!result.success) {
+            setErrors(result.errors);
+            return;
+        }
+
+        setErrors([]);
+    };
+    
     const renderField = (field: FieldConfig) => {
         const value = application?.answers[field.id];
 
@@ -68,6 +84,9 @@ const ApplicationForm = ({
                                 ? String(value)
                                 : undefined
                         }
+                        min={field.min}
+                        max={field.max}
+                        maxLength={field.maxLength}
                     />
                 );
 
@@ -102,6 +121,8 @@ const ApplicationForm = ({
                                 ? value
                                 : undefined
                         }
+                        maxLength={field.maxLength}
+                        maxWords={field.maxWords}
                     />
                 );
 
@@ -190,8 +211,9 @@ const ApplicationForm = ({
 
                 <form
                     className="application-form"
-                    action={(formData) => submitForm(formData, user.id)}
-                >
+                    action={handleFormAction}
+                    noValidate
+                > 
                     {APPLICATION_CONFIG.map((section) => (
                         <FormSection
                             key={section.label}
@@ -243,6 +265,24 @@ const ApplicationForm = ({
                             {section.fields.map(renderField)}
                         </FormSection>
                     ))}
+                    {errors.length > 0 && (
+                        <div
+                            className="application-errors"
+                            role="alert"
+                        >
+                            <p>
+                                Please fix the following before submitting:
+                            </p>
+
+                            <ul>
+                                {errors.map((error, index) => (
+                                    <li key={`${error}-${index}`}>
+                                        {error}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
 
                     <div className="application-submit">
                         <SubmitButton submitText={submitText} />

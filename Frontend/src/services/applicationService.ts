@@ -8,16 +8,16 @@ import { APPLICATION_CONFIG } from '../../data/application_configuration';
 const DATABASE_API_URL = 'http://localhost:3001/people';
 
 
-type SubmitApplicationResult =
+export type SubmitApplicationResult =
     | {
         success: true;
         personData: Person;
-        error: null;
+        errors: [];
     }
     | {
         success: false;
         personData: null;
-        error: string;
+        errors: string[];
     };
 
 
@@ -71,9 +71,69 @@ function getStringArray(
 
 
 /* ========================================
-   Field Parsers
+   Validation / Normalization Helpers
 ======================================== */
 
+function countWords(value: string): number {
+    const trimmed = value.trim();
+    return trimmed ? trimmed.split(/\s+/).length : 0;
+}
+
+
+function normalizeUrl(value: string): string {
+    const trimmed = value.trim();
+
+    if (/^https?:\/\//i.test(trimmed)) {
+        return trimmed;
+    }
+
+    return `https://${trimmed}`;
+}
+
+
+function validateUrl(value: string, label: string): string {
+    const normalized = normalizeUrl(value);
+
+    try {
+        const url = new URL(normalized);
+
+        if (
+            url.protocol !== 'http:' &&
+            url.protocol !== 'https:'
+        ) {
+            throw new Error();
+        }
+
+        return url.href;
+    } catch {
+        throw new Error(
+            `${label} must be a valid URL`
+        );
+    }
+}
+
+
+function normalizePhone(value: string): string {
+    return value.trim().replace(/[\s().-]/g, '');
+}
+
+
+function validatePhone( value: string, label: string): string {
+    const normalized = normalizePhone(value);
+
+    if (!/^\+?\d{7,15}$/.test(normalized)) {
+        throw new Error(
+            `${label} must be a valid phone number`
+        );
+    }
+
+    return normalized;
+}
+
+
+/* ========================================
+   Field Parsers
+======================================== */
 function parseTextField(
     field: Extract<FieldConfig, { type: 'text' }>,
     formData: FormData
@@ -93,6 +153,7 @@ function parseTextField(
         return null;
     }
 
+    /* Number */
     if (field.inputType === 'number') {
         const number = Number(value);
 
@@ -102,7 +163,63 @@ function parseTextField(
             );
         }
 
+        if (!Number.isInteger(number)) {
+            throw new Error(
+                `${field.label} must be a whole number`
+            );
+        }
+
+        if (
+            field.min !== undefined &&
+            number < field.min
+        ) {
+            throw new Error(
+                `${field.label} must be at least ${field.min}`
+            );
+        }
+
+        if (
+            field.max !== undefined &&
+            number > field.max
+        ) {
+            throw new Error(
+                `${field.label} must be at most ${field.max}`
+            );
+        }
+
         return number;
+    }
+
+    /* URL */
+    if (field.inputType === 'url') {
+        const normalizedUrl =
+            validateUrl(value, field.label);
+
+        if (
+            field.maxLength !== undefined &&
+            normalizedUrl.length > field.maxLength
+        ) {
+            throw new Error(
+                `${field.label} must be at most ${field.maxLength} characters`
+            );
+        }
+
+        return normalizedUrl;
+    }
+
+    /* Phone */
+    if (field.inputType === 'tel') {
+        return validatePhone(value, field.label);
+    }
+
+    /* Normal text */
+    if (
+        field.maxLength !== undefined &&
+        value.length > field.maxLength
+    ) {
+        throw new Error(
+            `${field.label} must be at most ${field.maxLength} characters`
+        );
     }
 
     return value;
@@ -177,10 +294,7 @@ function parseCheckboxField(
 
 
 function parseLongTextField(
-    field: Extract<
-        FieldConfig,
-        { type: 'longText' }
-    >,
+    field: Extract<FieldConfig, { type: 'longText' }>,
     formData: FormData
 ): string | null {
     const value = getString(
@@ -188,12 +302,31 @@ function parseLongTextField(
         field.id
     );
 
+    if (value === null) {
+        if (field.required) {
+            throw new Error(
+                `${field.label} is required`
+            );
+        }
+
+        return null;
+    }
+
     if (
-        value === null &&
-        field.required
+        field.maxLength !== undefined &&
+        value.length > field.maxLength
     ) {
         throw new Error(
-            `${field.label} is required`
+            `${field.label} must be at most ${field.maxLength} characters`
+        );
+    }
+
+    if (
+        field.maxWords !== undefined &&
+        countWords(value) > field.maxWords
+    ) {
+        throw new Error(
+            `${field.label} must be at most ${field.maxWords} words`
         );
     }
 
@@ -275,21 +408,42 @@ function parseField(
    Application Parser
 ======================================== */
 
+class ApplicationValidationError extends Error {
+    errors: string[];
+
+    constructor(errors: string[]) {
+        super('Application validation failed');
+        this.errors = errors;
+    }
+}
+
 function parseApplication(
     formData: FormData
 ): Application {
-    const answers: Record<
-        string,
-        ApplicationAnswer
-    > = {};
+    const answers: Record<string, ApplicationAnswer> = {};
+    const errors: string[] = [];
 
     for (const section of APPLICATION_CONFIG) {
         for (const field of section.fields) {
-            answers[field.id] = parseField(
-                field,
-                formData
-            );
+            try {
+                answers[field.id] = parseField(
+                    field,
+                    formData
+                );
+            } catch (error) {
+                if (error instanceof Error) {
+                    errors.push(error.message);
+                } else {
+                    errors.push(
+                        `${field.label} contains invalid data`
+                    );
+                }
+            }
         }
+    }
+
+    if (errors.length > 0) {
+        throw new ApplicationValidationError(errors);
     }
 
     return {
@@ -337,7 +491,7 @@ async function submitApplication(
         return {
             success: true,
             personData,
-            error: null
+            errors: []
         };
 
     } catch (error) {
@@ -349,8 +503,8 @@ async function submitApplication(
         return {
             success: false,
             personData: null,
-            error: 'Failed to submit application'
-        };
+            errors: ['Failed to submit application']
+    };
     }
 }
 
@@ -373,10 +527,13 @@ async function handleSubmit(
         );
 
     } catch (error) {
-        const message =
-            error instanceof Error
-                ? error.message
-                : 'Invalid application data';
+        if (error instanceof ApplicationValidationError) {
+            return {
+                success: false,
+                personData: null,
+                errors: error.errors
+            };
+        }
 
         console.error(
             'Error validating application:',
@@ -386,10 +543,9 @@ async function handleSubmit(
         return {
             success: false,
             personData: null,
-            error: message
+            errors: ['Invalid application data']
         };
     }
 }
-
 
 export { handleSubmit };
