@@ -37,6 +37,7 @@ const Apply = ({ user, setUser }: ApplyProps) => {
             user={user}
             submitForm={submitForm}
             submitText="Submit Application"
+            draftKey="hackumassApplicationDraft:new"
         />
     );
 };

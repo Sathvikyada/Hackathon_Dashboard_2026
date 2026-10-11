@@ -67,7 +67,9 @@ const Nav = ({ user, setUser, pageOptions }: NavProps) => {
                             onClick={() => {
                                 sessionStorage.removeItem('applicationFilters');
                                 sessionStorage.removeItem('applicationSearch');
-                                setUser(null)
+                                sessionStorage.removeItem('hackumassApplicationDraft:new');
+                                sessionStorage.removeItem('hackumassApplicationDraft:edit');
+                                setUser(null);
                                 toast.success('Sign-out successful!');
                             }}
                         >

@@ -44,6 +44,7 @@ const EditApplication = ({ user, setUser }: EditApplicationProps) => {
             application={user.application}
             submitForm={submitForm}
             submitText="Modify Application"
+            draftKey="hackumassApplicationDraft:edit"
         />
     );
 };

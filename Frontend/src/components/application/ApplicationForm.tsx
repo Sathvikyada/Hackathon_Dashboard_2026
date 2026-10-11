@@ -2,6 +2,7 @@ import '../styles/content.css';
 import './styles/application.css';
 import { useState } from 'react';
 import { useFormStatus } from 'react-dom';
+import useApplicationDraft from './useApplicationDraft';
 
 import type { SubmitApplicationResult } from '../../services/applicationService';
 import type { Person } from '../../types/person';
@@ -28,6 +29,7 @@ interface ApplicationProps {
         userID: string
     ) => Promise<SubmitApplicationResult>;
     submitText: string;
+    draftKey: string;
 }
 
 interface SubmitButtonProps {
@@ -45,13 +47,9 @@ const SubmitButton = ({ submitText }: SubmitButtonProps) => {
     );
 };
 
-const ApplicationForm = ({
-    user,
-    application,
-    submitForm,
-    submitText
-}: ApplicationProps) => {
+const ApplicationForm = ({user, application, submitForm, submitText, draftKey}: ApplicationProps) => {
     const [errors, setErrors] = useState<string[]>([]);
+    const {formRef, draft, clearDraft, saveStatus, markUnsaved} = useApplicationDraft({storageKey: draftKey, intervalMs: 5_000});
 
     const handleFormAction = async (formData: FormData) => {
         setErrors([]);
@@ -62,11 +60,15 @@ const ApplicationForm = ({
             return;
         }
 
-        setErrors([]);
+        clearDraft();
     };
     
     const renderField = (field: FieldConfig) => {
-        const value = application?.answers[field.id];
+        const savedValue = draft[field.id];
+
+        const value = savedValue !== undefined
+                ? savedValue
+                : application?.answers[field.id];
 
         switch (field.type) {
             case 'text':
@@ -210,10 +212,12 @@ const ApplicationForm = ({
                 </p>
 
                 <form
+                    ref={formRef}
                     className="application-form"
                     action={handleFormAction}
+                    onChange={markUnsaved}
                     noValidate
-                > 
+                >
                     {APPLICATION_CONFIG.map((section) => (
                         <FormSection
                             key={section.label}
@@ -285,6 +289,17 @@ const ApplicationForm = ({
                     )}
 
                     <div className="application-submit">
+                        <span
+                            className={
+                                saveStatus === 'error'
+                                    ? 'draft-status draft-status-error'
+                                    : 'draft-status'
+                            }
+                        >
+                            {saveStatus === 'saved' && 'Draft Saved'}
+                            {saveStatus === 'error' && 'Unable to save draft'}
+                        </span>
+
                         <SubmitButton submitText={submitText} />
                     </div>
                 </form>
