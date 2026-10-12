@@ -271,7 +271,6 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
 
                 width: 'half'
             },
-
             {
                 type: 'text',
                 id: 'hackathonCount',
@@ -282,9 +281,15 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 inputType: 'number',
                 width: 'half',
                 min: 0,
-                max: 100
-            },
+                max: 100,
 
+                dependencies: [
+                    {
+                        fieldId: 'attendedHackathon',
+                        value: 'Yes'
+                    }
+                ]
+            },
             {
                 type: 'radio',
                 id: 'attendedHackUMass',
@@ -299,7 +304,6 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
 
                 width: 'half'
             },
-
             {
                 type: 'longText',
                 id: 'previousExperience',
@@ -308,7 +312,14 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 required: false,
                 filterable: false,
                 rows: 4,
-                maxLength: 400
+                maxLength: 400,
+
+                dependencies: [
+                    {
+                        fieldId: 'attendedHackUMass',
+                        value: 'Yes'
+                    }
+                ]
             }
         ]
     },
@@ -316,7 +327,6 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
 
     {
         label: 'Skills',
-
         fields: [
             {
                 type: 'longText',
@@ -419,16 +429,22 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
 
                 width: 'full'
             },
-
             {
                 type: 'longText',
                 id: 'travelDetails',
                 label:
-                    'If you selected Travel Stipend, where would you be traveling from and what is your estimated cost of travel?',
+                    'Where would you be traveling from and what is your estimated cost of travel?',
                 required: false,
                 filterable: false,
                 rows: 3,
-                maxLength: 400
+                maxLength: 400,
+
+                dependencies: [
+                    {
+                        fieldId: 'travelSupport',
+                        value: 'I need a travel stipend'
+                    }
+                ]
             }
         ]
     },
@@ -452,7 +468,6 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
 
                 width: 'full'
             },
-
             {
                 type: 'longText',
                 id: 'foodRestrictions',
@@ -460,9 +475,15 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 required: false,
                 filterable: false,
                 rows: 3,
-                maxLength: 400
-            },
+                maxLength: 400,
 
+                dependencies: [
+                    {
+                        fieldId: 'mealAccommodations',
+                        value: 'Yes'
+                    }
+                ]
+            },
             {
                 type: 'longText',
                 id: 'hardwareRequests',
@@ -472,7 +493,6 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 rows: 3,
                 maxLength: 400
             },
-
             {
                 type: 'text',
                 id: 'snacks',
@@ -483,7 +503,6 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 width: 'half',
                 maxLength: 200
             },
-
             {
                 type: 'text',
                 id: 'prizes',
@@ -494,7 +513,6 @@ export const APPLICATION_CONFIG: FormSectionConfig[] = [
                 width: 'half',
                 maxLength: 200
             },
-
             {
                 type: 'text',
                 id: 'song',

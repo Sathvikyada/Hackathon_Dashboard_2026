@@ -1,4 +1,4 @@
-import ApplicationForm from './ApplicationForm';
+import ApplicationForm from './applicationForm/ApplicationForm';
 import type { Person } from '../../types/person';
 import type { SubmitApplicationResult } from '../../services/applicationService';
 

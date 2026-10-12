@@ -5,7 +5,7 @@ import { handleSubmit } from '../../services/applicationService';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import ApplicationForm from './ApplicationForm';
+import ApplicationForm from './applicationForm/ApplicationForm';
 
 
 interface ApplyProps {

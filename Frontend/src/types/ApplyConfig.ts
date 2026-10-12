@@ -11,8 +11,12 @@ export interface TextFieldConfig {
 
     min?: number;
     max?: number;
-
     maxLength?: number;
+
+    dependencies?: {
+        fieldId: string;
+        value: string | boolean;
+    }[];
 }
 
 export interface SelectFieldConfig {
@@ -23,6 +27,11 @@ export interface SelectFieldConfig {
     options: string[];
     width: FieldWidth;
     filterable: boolean;
+
+    dependencies?: {
+        fieldId: string;
+        value: string | boolean;
+    }[];
 }
 
 export interface LongTextFieldConfig {
@@ -36,6 +45,11 @@ export interface LongTextFieldConfig {
     
     maxLength?: number;
     maxWords?: number;
+    
+    dependencies?: {
+        fieldId: string;
+        value: string | boolean;
+    }[];
 }
 
 export interface RadioFieldConfig {
@@ -46,6 +60,11 @@ export interface RadioFieldConfig {
     options: string[];
     width: FieldWidth;
     filterable: boolean;
+    
+    dependencies?: {
+        fieldId: string;
+        value: string | boolean;
+    }[];
 }
 
 export interface CheckboxFieldConfig {
@@ -57,6 +76,11 @@ export interface CheckboxFieldConfig {
     options: string[];
     width: FieldWidth;
     filterable: boolean;
+
+    dependencies?: {
+        fieldId: string;
+        value: string | boolean;
+    }[];
 }
 
 export interface FileFieldConfig {
@@ -68,6 +92,11 @@ export interface FileFieldConfig {
     accept: string;
     width: FieldWidth;
     filterable: boolean;
+
+    dependencies?: {
+        fieldId: string;
+        value: string | boolean;
+    }[];
 }
 
 export interface AgreementFieldConfig {
@@ -77,6 +106,11 @@ export interface AgreementFieldConfig {
     required: boolean;
     width: FieldWidth;
     filterable: boolean;
+    
+    dependencies?: {
+        fieldId: string;
+        value: string | boolean;
+    }[];
 }
 
 export type FieldConfig =
