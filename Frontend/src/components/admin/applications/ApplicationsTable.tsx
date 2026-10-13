@@ -1,7 +1,7 @@
 import './styles/applicationsTable.css';
 import type { Person } from '../../../types/person';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 interface ApplicationsTableProps {
     participants: Person[];
@@ -116,7 +116,15 @@ const ApplicationsTable = ({ participants }: ApplicationsTableProps) => {
                                     })
                                 }
                             >
-                                <td>{participant.firstName} {participant.lastName}</td>
+                                <td>
+                                    <Link
+                                        to={`/applicant/${participant.id}`}
+                                        state={{ applicantIds }}
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
+                                        {participant.firstName} {participant.lastName}
+                                    </Link>
+                                </td>
 
                                 <td>{participant.email}</td>
 

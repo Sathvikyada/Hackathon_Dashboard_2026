@@ -3,6 +3,7 @@ import type { SubmitApplicationResult } from '../../services/applicationService'
 
 import { handleSubmit } from '../../services/applicationService';
 import { useNavigate } from 'react-router-dom';
+import { useDocumentTitle } from '../../useDocumentTitle';
 import { toast } from 'react-toastify';
 
 import ApplicationForm from './applicationForm/ApplicationForm';
@@ -14,6 +15,8 @@ interface ApplyProps {
 }
 
 const Apply = ({ user, setUser }: ApplyProps) => {
+    useDocumentTitle('Apply');
+    
     const navigate = useNavigate();
 
     async function submitForm(formData: FormData, userID: string): Promise<SubmitApplicationResult> {

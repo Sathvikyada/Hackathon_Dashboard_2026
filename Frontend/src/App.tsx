@@ -39,7 +39,7 @@ function App() {
         />
 
       <section id="header"> 
-        < Header logo={logo} user={user} setUser={setUser} pageOptions={pageOptions}/>
+        <Header logo={logo} user={user} setUser={setUser} pageOptions={pageOptions}/>
       </section>
 
       <main id="center">

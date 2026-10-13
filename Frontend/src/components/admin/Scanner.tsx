@@ -1,6 +1,7 @@
 import '../styles/content.css';
 import './styles/scanner.css';
 
+import { useDocumentTitle } from '../../useDocumentTitle';
 import { useEffect, useRef, useState } from 'react';
 
 import type { Person } from '../../types/person';
@@ -10,6 +11,8 @@ interface ScannerProps {
 }
 
 const Scanner = ({ user }: ScannerProps) => {
+    useDocumentTitle('Scanner');
+
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const streamRef = useRef<MediaStream | null>(null);
 

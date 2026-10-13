@@ -4,6 +4,7 @@ import './styles/applications.css';
 import type { Person } from '../../../types/person';
 import { getAllParticipants } from '../../../services/adminApplicationService';
 
+import { useDocumentTitle } from '../../../useDocumentTitle';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -11,10 +12,13 @@ import ApplicationsTable from './ApplicationsTable';
 import type { ParticipantFilter } from './filter/filterTypes';
 import ApplicationsFilter from './filter/ApplicationsFilter';
 import { filterParticipants } from './filter/filterParticipants';
+import { exportParticipantsToCSV } from './csvExport';
 
 const FILTER_STORAGE_KEY = 'applicationFilters';
 
 const Applications = () => {
+    useDocumentTitle('Applications');
+
     const [participants, setParticipants] = useState<Person[]>([]);
 
     const [filters, setFilters] = useState<ParticipantFilter[]>(() => {
@@ -64,9 +68,28 @@ const Applications = () => {
             <div className="content-card applications-card">
                 <div className="applications-heading">
                     <h1>Applications</h1>
-                    <p>{filteredParticipants.length} of {participants.length} participants</p>
-                </div>
+
+                    <div className="applications-heading-actions">
+                        <p>{filteredParticipants.length} of {participants.length} participants</p>
+
+                        <button
+                            type="button"
+                            className="applications-export-button"
+                            onClick={() =>
+                                exportParticipantsToCSV(filteredParticipants)
+                            }
+                        >
+                            Export To CSV
+                        </button> 
+                    </div>
+                </div>              
                 
+                {filters.length > 0 && (
+                    <div className="applications-filter-warning" role="status">
+                        ⚠ Filters are currently active
+                    </div>
+                )}
+
                 <ApplicationsFilter
                     filters={filters}
                     setFilters={setFilters}

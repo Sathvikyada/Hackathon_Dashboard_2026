@@ -1,11 +1,14 @@
-import { useState } from 'react';
-import QRCode from 'react-qr-code';
 import './styles/content.css';
 import './styles/meals.css';
+import { useDocumentTitle } from '../useDocumentTitle'
+import { useState } from 'react';
+import QRCode from 'react-qr-code';
 
 type Meal = 'Dinner' | 'Breakfast' | 'Lunch';
 
 const Meals = () => {
+    useDocumentTitle('Meals');
+    
     const [openMeal, setOpenMeal] = useState<Meal | null>(null);
 
     function toggleMeal(meal: Meal) {

@@ -1,14 +1,17 @@
 import { Link } from 'react-router-dom';
 import './styles/home.css';
 import type { Person } from '../types/person';
+import { useDocumentTitle } from '../useDocumentTitle';
 
 interface HomeProps {
     user: Person | null;
 }
 
 const Home = ({user}: HomeProps) => {
+    useDocumentTitle('Home');
+
     return (
-        <main className="home">
+        <div className="home">
             <section className="home-hero">
                 <div className="home-hero-content">
                     <p className="home-eyebrow">
@@ -152,7 +155,7 @@ const Home = ({user}: HomeProps) => {
                     <span aria-hidden="true">→</span>
                 </Link>}
             </section>
-        </main>
+        </div>
     );
 };
 

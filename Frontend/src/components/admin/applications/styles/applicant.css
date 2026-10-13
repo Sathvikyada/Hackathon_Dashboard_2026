@@ -76,6 +76,17 @@
     outline-offset: 2px;
 }
 
+.applicant-navigation-bottom {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+
+    padding-top: 1rem;
+    padding-bottom: 0;
+
+    border-top: 1px solid rgba(170, 59, 255, 0.18);
+    border-bottom: none;
+}
+
 /* ---------------- Top Actions ---------------- */
 
 .applicant-top-actions {

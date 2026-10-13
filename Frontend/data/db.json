@@ -16,7 +16,7 @@
       "lastName": "Yada",
       "email": "vick@g",
       "applied": true,
-      "applicationDecision": "Waitlisted",
+      "applicationDecision": "Rejected",
       "rsvpStatus": "N/A",
       "organizer": false,
       "application": {
@@ -67,7 +67,7 @@
           "workshopInterest": null
         }
       },
-      "applicationDecisionLastModified": "2026-10-10T21:40:12.990Z",
+      "applicationDecisionLastModified": "2026-10-13T04:21:28.454Z",
       "applicationDecisionModifiedBy": "8",
       "applicationDecisionModifiedByName": "Grace Taylor"
     },

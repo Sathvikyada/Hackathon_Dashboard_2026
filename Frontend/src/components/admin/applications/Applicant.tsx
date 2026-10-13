@@ -7,6 +7,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import type { Person } from '../../../types/person';
 import ApplicantInfo from './ApplicantInfo';
 import { getParticipantById, updateApplicationDecision } from '../../../services/adminApplicationService';
+import ApplicantNavigation from './ApplicantNavigation';
 
 interface ApplicantRequestState {
     id: string | null;
@@ -139,6 +140,16 @@ const Applicant = ({ user }: ApplicantProps) => {
         );
     }
 
+    const handleRejectApplicant = async () => {
+        const applicantName = `${applicant.firstName} ${applicant.lastName}`;
+        const confirmed = window.confirm(`Are you sure you want to reject ${applicantName}?`);
+
+        if (!confirmed) {
+            return;
+        }
+        await handleUpdateDecision('Rejected');
+    };
+
     const handleUpdateDecision = async (decision: Person['applicationDecision']) => {
         if (decision === requestState.applicant?.applicationDecision) {
             return;
@@ -178,29 +189,15 @@ const Applicant = ({ user }: ApplicantProps) => {
                     </button>
                 </div>
                 
-                {currentIndex !== -1 && (
-                    <div className="applicant-navigation">
-                        <button
-                            type="button"
-                            disabled={!previousId || updatingDecision}
-                            onClick={goToPreviousApplicant}
-                        >
-                            Previous
-                        </button>
-
-                        <span>
-                            {currentIndex + 1} of {applicantIds.length}
-                        </span>
-
-                        <button
-                            type="button"
-                            disabled={!nextId || updatingDecision}
-                            onClick={goToNextApplicant}
-                        >
-                            Next
-                        </button>
-                    </div>
-                )}
+                <ApplicantNavigation 
+                    currentIndex={currentIndex}
+                    totalApplicants={applicantIds.length}
+                    previousId={previousId}
+                    nextId={nextId}
+                    updatingDecision={updatingDecision}
+                    onPrevious={goToPreviousApplicant}
+                    onNext={goToNextApplicant}
+                />
 
                 <ApplicantInfo applicant={applicant} />
 
@@ -219,7 +216,7 @@ const Applicant = ({ user }: ApplicantProps) => {
                             type="button"
                             className="decision-button accept"
                             onClick={() => handleUpdateDecision('Accepted')}
-                            disabled={updatingDecision}
+                            disabled={updatingDecision || applicant.applicationDecision === 'Accepted'}
                         >
                             Accept
                         </button>
@@ -228,7 +225,7 @@ const Applicant = ({ user }: ApplicantProps) => {
                             type="button"
                             className="decision-button waitlist"
                             onClick={() => handleUpdateDecision('Waitlisted')}
-                            disabled={updatingDecision}
+                            disabled={updatingDecision || applicant.applicationDecision === 'Waitlisted'}
                         >
                             Waitlist
                         </button>
@@ -236,13 +233,24 @@ const Applicant = ({ user }: ApplicantProps) => {
                         <button
                             type="button"
                             className="decision-button reject"
-                            onClick={() => handleUpdateDecision('Rejected')}
-                            disabled={updatingDecision}
+                            onClick={handleRejectApplicant}
+                            disabled={updatingDecision || applicant.applicationDecision === 'Rejected'}
                         >
                             Reject
                         </button>
                     </div>
                 </section>
+
+                <ApplicantNavigation 
+                    currentIndex={currentIndex}
+                    totalApplicants={applicantIds.length}
+                    previousId={previousId}
+                    nextId={nextId}
+                    updatingDecision={updatingDecision}
+                    onPrevious={goToPreviousApplicant}
+                    onNext={goToNextApplicant}
+                    className="applicant-navigation-bottom"
+                />
             </div>
         </section>
     );

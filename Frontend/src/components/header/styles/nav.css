@@ -1,0 +1,271 @@
+.nav {
+    position: relative;
+}
+
+
+/* =========================
+   Base Navigation List
+   ========================= */
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav li {
+    position: relative;
+    padding: 4px 0;
+
+    transition: transform 0.2s ease;
+}
+
+
+/* =========================
+   Regular Navigation Links
+   ========================= */
+
+.nav a:not(.nav-auth-button) {
+    color: var(--text, #08060d);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+
+    transition:
+        color 0.25s ease,
+        background-color 0.2s ease;
+}
+
+
+/* Underline */
+
+.nav li:has(a:not(.nav-auth-button))::after {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background-color: var(--accent);
+    border-radius: 2px;
+
+    transform: scaleX(0);
+    transform-origin: center;
+
+    transition: transform 0.25s ease;
+}
+
+
+/* Link Hover */
+
+.nav li:has(a:not(.nav-auth-button)):hover {
+    transform: translateY(-1px);
+}
+
+.nav li:has(a:not(.nav-auth-button)):hover
+    a:not(.nav-auth-button) {
+    color: var(--accent);
+}
+
+.nav li:has(a:not(.nav-auth-button)):hover::after {
+    transform: scaleX(1);
+}
+
+
+/* Current Page */
+
+.nav li:has(a.active:not(.nav-auth-button))::after {
+    transform: scaleX(1);
+    background-color: var(--accent-light);
+}
+
+
+/* =========================
+   Sign In / Sign Out
+   ========================= */
+
+.nav-auth-button {
+    display: inline-block;
+
+    padding: 7px 13px;
+
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    background-color: var(--accent);
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.nav-auth-button:hover {
+    background-color: #9228e6;
+    color: #ffffff;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 4px 10px rgba(170, 59, 255, 0.25);
+}
+
+.nav-auth-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.nav-auth-button:focus-visible {
+    outline: 3px solid var(--accent-light);
+    outline-offset: 2px;
+}
+
+
+/* =========================
+   Hamburger Button
+   ========================= */
+
+.nav-menu-button {
+    display: none;
+
+    padding: 8px 10px;
+
+    color: var(--heading-card);
+
+    font: inherit;
+    font-size: 1.3rem;
+    line-height: 1;
+
+    background: #ffffff;
+
+    border: 1px solid var(--accent-light);
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.nav-menu-button:hover {
+    background: var(--accent-surface);
+    border-color: var(--accent);
+}
+
+.nav-menu-button:focus-visible {
+    outline: 3px solid rgba(170, 59, 255, 0.18);
+    outline-offset: 2px;
+}
+
+
+/* =========================
+   Mobile Navigation
+   ========================= */
+
+@media (max-width: 768px) {
+    .nav {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .nav-menu-button {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+
+        min-width: 220px;
+
+        padding: 10px;
+
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+
+        background: #ffffff;
+
+        border: 1px solid var(--accent-light);
+        border-radius: 10px;
+
+        box-shadow:
+            0 8px 24px rgba(0, 0, 0, 0.12);
+
+        z-index: 1000;
+    }
+
+    .nav-menu.nav-menu-open {
+        display: flex;
+    }
+
+    .nav li {
+        width: 100%;
+        padding: 0;
+    }
+
+    .nav li:hover {
+        transform: none;
+    }
+
+    .nav li:has(a:not(.nav-auth-button))::after {
+        display: none;
+    }
+
+    .nav a:not(.nav-auth-button) {
+        display: block;
+
+        width: 100%;
+        box-sizing: border-box;
+
+        padding: 10px 12px;
+
+        border-radius: 7px;
+    }
+
+    .nav a:not(.nav-auth-button):hover {
+        color: var(--accent);
+        background: var(--accent-surface);
+    }
+
+    .nav a.active:not(.nav-auth-button) {
+        color: var(--accent);
+        background: var(--accent-surface);
+
+        font-weight: 600;
+    }
+
+    .nav-auth-button {
+        display: block;
+
+        width: 100%;
+        min-height: 44px;
+
+        padding: 10px 12px;
+
+        box-sizing: border-box;
+
+        text-align: center;
+    }
+}

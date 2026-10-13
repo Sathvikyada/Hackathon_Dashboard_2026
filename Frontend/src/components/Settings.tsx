@@ -5,6 +5,7 @@ import { handleSettingsUpdate } from '../services/settingsService';
 import { useNavigate } from 'react-router-dom';
 import { useFormStatus } from 'react-dom';
 import { toast } from 'react-toastify';
+import { useDocumentTitle } from '../useDocumentTitle'
 
 interface SettingsProps {
     user: Person;
@@ -22,6 +23,8 @@ const SubmitButton = () => {
 }
 
 const Settings = ({ user, setUser }: SettingsProps) => {
+    useDocumentTitle('Settings');
+    
     const navigate = useNavigate();
 
     async function handleUpdate(formData: FormData, userID: string): Promise<void> {

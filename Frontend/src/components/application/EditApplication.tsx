@@ -4,6 +4,7 @@ import type { SubmitApplicationResult } from '../../services/applicationService'
 
 import { handleSubmit } from '../../services/applicationService';
 import { useNavigate } from 'react-router-dom';
+import { useDocumentTitle } from '../../useDocumentTitle';
 import { toast } from 'react-toastify';
 
 interface EditApplicationProps {
@@ -12,6 +13,8 @@ interface EditApplicationProps {
 }
 
 const EditApplication = ({ user, setUser }: EditApplicationProps) => {
+    useDocumentTitle('Edit Application');
+    
     const navigate = useNavigate();
 
     async function submitForm(formData: FormData, userID: string): Promise<SubmitApplicationResult> {
@@ -29,8 +32,9 @@ const EditApplication = ({ user, setUser }: EditApplicationProps) => {
     if (!user.application) {
         return (
             <div>
-                <p>No application found.</p>
                 <p>
+                    No application found.
+
                     Please reach out to the organizers at
                     hackumass@gmail.com for further assistance.
                 </p>

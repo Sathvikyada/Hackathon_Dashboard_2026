@@ -3,12 +3,14 @@ import './styles/signIn.css'
 import type { Person } from '../types/person';
 import { signIn } from '../services/signInService'
 import { toast } from 'react-toastify';
+import { useDocumentTitle } from '../useDocumentTitle'
 
 interface SignInProps {
     setUser: (person: Person | null) => void;
 }
 
 const SignIn = ({setUser}: SignInProps) => {
+    useDocumentTitle('Sign In');
 
     async function handleSignIn(formData: FormData) {
         const email = formData.get('email');

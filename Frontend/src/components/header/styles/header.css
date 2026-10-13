@@ -11,6 +11,18 @@
   height: 96px;
   width: auto;
   display: block;
+  cursor: pointer;
+}
+
+.logo-link {
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo-link:focus-visible {
+    outline: 3px solid var(--accent-light);
+    outline-offset: 4px;
+    border-radius: 6px;
 }
 
 @media (max-width: 768px) {
